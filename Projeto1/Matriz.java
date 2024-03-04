@@ -15,8 +15,10 @@ public class Matriz
         int entrada = -1;
         int andar = -1;
         
+        System.out.println("   1   |  2   |  3   ");
         for(int i = 0; i < 4; i++)
         {
+            System.out.print((i+1) + "|");
             for(int j = 0; j < 3; j++)
             {
                 System.out.print(cond[i][j] + " ");
@@ -43,10 +45,8 @@ public class Matriz
         
         if (entrada != -1)
         {
-            System.out.println("--------------------------");
             System.out.print("Morada: entrada " + (entrada+1) + " andar " + (andar+1));
         } else{
-            System.out.println("--------------------------");
             System.out.print("Não residente");
         }//Verifica se a pessoa buscada mora no condomínio
     }// Fim do método
