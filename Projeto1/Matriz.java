@@ -2,8 +2,8 @@
 /**
  * Escreva uma descrição da classe Matriz aqui.
  * 
- * @author (seu nome) 
- * @version (um número da versão ou uma data)
+ * @author Devysson S. Cardoso
+ * @version 03/03/2024
  */
 import java.util.Scanner;
 public class Matriz
