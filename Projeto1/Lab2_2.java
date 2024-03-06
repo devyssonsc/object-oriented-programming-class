@@ -28,21 +28,17 @@ public class Lab2_2
         
         for (int row = 0; row < 4; row++){
             for (int col = 0; col < 5; col++){
+                somaLinhas[row] += tabela[row][col];
+                somaDias[col] += tabela[row][col];
+                
                 System.out.print(tabela[row][col] + " ");
             }
             System.out.print("\n");
         }
         
-        for (int row = 0; row < 4; row++){
-            for (int col = 0; col < 5; col++){
-                somaLinhas[row] += tabela[row][col];
-                somaDias[col] += tabela[row][col];
-            }
-        }
-        
         System.out.println("\nSomas:");
-        for (int i = 0; i < 4; i++){
-            System.out.println(somaLinhas[i]);
+        for (int i = 0; i < 5; i++){
+            System.out.println(somaDias[i]);
         }
         System.out.println("-----------------------");
         for (int i = 0; i < 5; i++){
