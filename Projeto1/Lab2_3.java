@@ -1,19 +1,20 @@
 
 /**
- * Escreva uma descrição da classe Lab2_1 aqui.
+ * Escreva uma descrição da classe Lab2_3 aqui.
  * 
- * @author Devysson S. Cardoso 
- * @version 05/03/2024
+ * @author Devysson S. Cardoso
+ * @version 06/03/2024
  */
 import java.util.Scanner;
-public class Lab2_1
+public class Lab2_3
 {
-    public static void main(String[] args)
+    public static void main(String [] args)
     {
         Scanner input = new Scanner (System.in);
         String[] names = new String[20];
         String newName;
         String nomeBuscado;
+        String nomeEliminado;
         int pos = 0;
         
         do{
@@ -41,9 +42,20 @@ public class Lab2_1
             } while (newName.equals(""));
         }
         
+        String aux;
         for (int i = 0; i < pos; i++){
-                System.out.println(names[i]);
+            for (int j = 0; j < pos; j++){
+                if (names[j].compareToIgnoreCase(names[i]) > 0){
+                    aux = names[i];
+                    names[i] = names[j];
+                    names[j] = aux;
+                }
             }
+            }
+            
+        for (int i = 0; i < pos; i++){
+            System.out.println(names[i]);
+        }
             
         System.out.print("Digite o nome que quer buscar: ");
         nomeBuscado = input.nextLine();
@@ -63,5 +75,29 @@ public class Lab2_1
             System.out.print("Digite o nome que quer buscar: ");
             nomeBuscado = input.nextLine();
         }
-    }//fim do método
-}//fim da classe
+        
+        System.out.print("Digite o nome que quer eliminar: ");
+        nomeEliminado = input.nextLine();
+        
+        while (!nomeEliminado.equalsIgnoreCase("Terminar")){
+            int e = 0;
+            while (e < pos){
+                for (int i = 0; i < pos; i++){
+                    if (names[i].equalsIgnoreCase(nomeEliminado)){
+                        e++;
+                    }
+                    names[i] = names[e];
+                    e++;
+                }
+                pos--;
+            }
+            
+            for (int i = 0; i < pos; i++){
+                System.out.println(names[i]);
+            }
+        
+            System.out.print("Digite o nome que quer eliminar: ");
+            nomeEliminado = input.nextLine();
+        }
+    }//fim do main
+}// fim da classe
