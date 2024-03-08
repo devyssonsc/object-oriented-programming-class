@@ -19,6 +19,7 @@ public class Lab5_6
         do{
             System.out.println("Menu de navegação:\n1) Inserir aluno\n2) Imprimir alunos\n3) Pesquisar aluno\n0) Sair");
             option = input.nextInt();
+            input.nextLine();
         } while (option < 0 || option > 3);
         
         while (option != 0){
@@ -50,6 +51,7 @@ public class Lab5_6
             do{
                 System.out.println("Menu de navegação:\n1) Inserir aluno\n2) Imprimir alunos\n3) Pesquisar aluno\n0) Sair");
                 option = input.nextInt();
+                input.nextLine();
             } while (option < 0 || option > 3);
         }
     }//fim da classe
