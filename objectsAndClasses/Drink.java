@@ -5,65 +5,84 @@
  * @author Devysson S. Cardoso
  * @version (um número da versão ou uma data)
  */
-import java.util.Scanner;
 public class Drink
 {
-    //instance variables
-    String packageType;
-    String flavour;
-    double price;
-    short stock;
-        
-    //class variables
-    static String brand = "Compal";
-    public Drink(String packageType, String flavour, double price)
+    //instance methods
+    //Geters and setters
+    /**
+     * 
+     * @return a String tha is the type of the package
+     */
+    public String getPackageType()
     {
-        this.packageType = packageType;
-        this.flavour = flavour;
-        this.price = price;
-        stock = 0;
-    }
-
-    public static void main(String[] args)
-    {
-        Scanner input = new Scanner(System.in);
-        System.out.print("Tipo da embalagem: ");
-        String pType = input.nextLine();
-        
-        System.out.print("Sabor: ");
-        String flav = input.nextLine();
-        
-        System.out.print("Preço: ");
-        double pric = input.nextDouble();
-        
-        Drink drink1 = new Drink(pType, flav, pric);
-        
-        drink1.printFlavour();
-        drink1.changeStock((short)50);
+        return packageType;
     }
     
-    /**
-    * method to change stock
-    * @param 
-    */
-   
-    public void changeStock(short newStock)
+    public String getFlavour()
+    {
+        return flavour;    
+    }
+    
+    public double getPrice()
+    {
+        return price;
+    }
+    
+    public short getStock()
+    {
+        return stock;
+    }
+    
+    public void setStock(short newStock)
     {
         stock = newStock;
     }
     
-    /**
-    * method to print flavour
-    */
-   
-    public void printFlavour()
+    public void setPrice(double price)
     {
-        System.out.println(flavour);
+        this.price = price;
+    }
+    
+    public void setFlavour(String flavour)
+    {
+        this.flavour = flavour;
+    }
+    
+    public void setPackageType(String packageType)
+    {
+        this.packageType = packageType;
+    }
+    //instance variables
+    private String packageType;
+    private String flavour;
+    private double price;
+    private short stock;
+    
+    //class variables
+    private static String brand = "Compal";
+    
+    public Drink(String pType, String flav, double price)
+    {
+        packageType = pType;
+        flavour = flav;
+        this.price = price;
+        stock = 0;
+    }
+    
+    public Drink() //Overloading polymorphism
+    {
+        packageType = "";
+        flavour = "";
+        this.price = 0.0;
+        stock = 0;
     }
     
     //class method
-    public static void printBrand()
+    /**
+     * method to print brand
+     */
+    public static String getBrand()
     {
-        System.out.println(brand);
+        return brand;
     }
 }
