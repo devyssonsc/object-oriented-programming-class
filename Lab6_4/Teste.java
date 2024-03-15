@@ -38,6 +38,7 @@ public class Teste
                         input.nextLine();
                     } while ((novoNumTelm / 100000000) < 1 || (novoNumTelm / 100000000) > 10); //verifica se o número tem 9 dígitos
                     insereContato(novoNome, novoNumTelm);
+                    System.out.println("\n--------------------------------------------------");
                     break;
                 case "b":
                     do{
@@ -50,9 +51,11 @@ public class Teste
                         novoNome = input.nextLine();
                     } while (novoNome.equalsIgnoreCase(""));
                     alterarNome(telmAlterado, novoNome);
+                    System.out.println("\n--------------------------------------------------");
                     break;
                 case "c":
                     imprimeContato();
+                    System.out.println("\n--------------------------------------------------");
                     break;
             }
             
