@@ -9,13 +9,13 @@ public class Lab5_4
 {
     public static void main(String[] args)
     {
-        imprimePrimos(45);
+        imprimePrimos(7);
     }//fim do main
     
     public static void imprimePrimos (int n)
     {
         for(int i = 1; i <= n; i++){
-            if (ePrimo(i)){
+            if (ePrimo(i) == true){
                 System.out.println(i);
             }
         }

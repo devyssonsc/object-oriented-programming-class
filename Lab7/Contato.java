@@ -36,7 +36,7 @@ public class Contato
     //instance methods
     public String toString()
     {
-        return "Nome: " + nome + " - " + "Número do telemóvel: " + numTelm + " - " + "Tipo: " + tipoContato;
+        return "Nome: " + nome + " - " + "Número do telemóvel: " + numTelm;
     }
     
     //get methods

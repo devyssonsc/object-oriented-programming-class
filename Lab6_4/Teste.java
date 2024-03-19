@@ -2,11 +2,11 @@
 /**
  * Escreva uma descrição da classe Teste aqui.
  * 
- * @author (seu nome) 
- * @version (um número da versão ou uma data)
+ * @author Devysson S. Cardoso
+ * @version 18.03.2024
  */
 import java.util.Scanner;
-public class Teste
+public class Teste //Has composition between Teste and Contato (Teste has a Contato)
 {
     static Contato[] contatos = new Contato[10];
     static int qtdContatos = 0;
@@ -66,12 +66,19 @@ public class Teste
         }
     }
     
+    /**
+     * @param recieve a String and a interger that will be the name and the number of the contact
+     */
     public static void insereContato(String novoNome, int novoTelm)
     {
         contatos[qtdContatos] = new Contato(novoNome, novoTelm);
         qtdContatos++;
     }
     
+    
+    /**
+     * @param recieve a interger and a String that will be the number and the new name of the contact
+     */
     public static void alterarNome(int telm, String novoNome)
     {
         int indiceEncontrado = 999;
@@ -88,13 +95,14 @@ public class Teste
         }
     }
     
+    /**
+     * print all the contacts
+     */
     public static void imprimeContato()
     {
         for(int i = 0; i < qtdContatos; i++){
             System.out.print((i + 1) + ". ");
-            System.out.println(contatos[i].getNome());
-            System.out.println(contatos[i].getNumTelm());
-            System.out.print("\n");
+            System.out.println(contatos[i].toString());
         }
     }
 }
