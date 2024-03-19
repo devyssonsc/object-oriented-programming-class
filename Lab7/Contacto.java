@@ -4,20 +4,20 @@
  * @author Devysson S. Cardoso 
  * @version 18.03.2024
  */
-public class Contato
+public class Contacto
 {
     //instance variables
     private String nome;
     private int numTelm;
     
     //class variables
-    private static String tipoContato = "Amigos";
+    private static String tipoContacto = "Amigos";
     
     //constructor
     /**
      * @param recieve a String and interger that will be used to construct a object
      */
-    public Contato(String nome, int numTelm)
+    public Contacto(String nome, int numTelm)
     {
         this.nome = nome;
         this.numTelm = numTelm;
@@ -30,7 +30,7 @@ public class Contato
      */
     public static String getTipoC()
     {
-        return tipoContato;
+        return tipoContacto;
     }
     
     //instance methods

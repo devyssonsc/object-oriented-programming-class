@@ -8,38 +8,33 @@
  
 public class GestorWhatsapp
 {
-    static Contato[] contatosA = new Contato[50];
-    static Contato[] contatosB = new Contato[100];
-    static int qtdContatosA = 0;
-    static int qtdContatosB = 0;
+    public Contacto[] contactos;
+    int qtdContactos;
+    int total;
+    
+    //Constructor
+    public GestorWhatsapp(int num)
+    {
+        total = num;
+        qtdContactos = 0;
+        
+        contactos = new Contacto[total];
+    }
+    
     /**
      * @param recieve a String and a interger that will be the name and the number of the contact
      */
-    public static void insereContato(String novoNome, int novoTelm, String qlLista)
+    public void insereContacto(String novoNome, int novoTelm)
     {
-        if (qlLista.equalsIgnoreCase("A")){
-            contatosA[qtdContatosA] = new Contato(novoNome, novoTelm);
-            qtdContatosA++;
-        } else{
-            contatosB[qtdContatosB] = new Contato(novoNome, novoTelm);
-            qtdContatosB++;
-        }
+        contactos[qtdContactos++] = new Contacto(novoNome, novoTelm);
     }
     
-    public static int pesquisaContato(int telm, String qlLista)
+    public int pesquisarContacto(int telm)
     {
         int indiceEncontrado = 999;
-        if (qlLista.equalsIgnoreCase("A")){
-            for (int i = 0; i < qtdContatosA; i++){
-                if (telm == contatosA[i].getNumTelm()){
-                    return indiceEncontrado;
-                }
-            }
-        } else{
-            for (int i = 0; i < qtdContatosB; i++){
-                if (telm == contatosB[i].getNumTelm()){
-                    return indiceEncontrado;
-                }
+        for (int i = 0; i < qtdContactos; i++){
+            if (telm == contactos[i].getNumTelm()){
+                return indiceEncontrado;
             }
         }
         
@@ -49,82 +44,49 @@ public class GestorWhatsapp
     /**
      * @param recieve a interger and a String that will be the number and the new name of the contact
      */
-    public static void alterarNome(int telm, String novoNome, String qlLista)
+    public void alterarNome(int telm, String novoNome)
     {
         int indiceEncontrado = 999;
         
-        if (qlLista.equalsIgnoreCase("A")){
-            for (int i = 0; i < qtdContatosA; i++){
-                if (telm == contatosA[i].getNumTelm()){
-                    indiceEncontrado = i;
-                }
+        
+        for (int i = 0; i < qtdContactos; i++){
+            if (telm == contactos[i].getNumTelm()){
+                indiceEncontrado = i;
             }
-            
-            if (indiceEncontrado == 999){
-                System.out.println("Número não encontrado");    
-            } else{
-                contatosA[indiceEncontrado].setNome(novoNome);
-            }
+        }
+        
+        if (indiceEncontrado == 999){
+            System.out.println("Número não encontrado");    
         } else{
-            for (int i = 0; i < qtdContatosB; i++){
-                if (telm == contatosB[i].getNumTelm()){
-                    indiceEncontrado = i;
-                }
-            }
-            
-            if (indiceEncontrado == 999){
-                System.out.println("Número não encontrado");    
-            } else{
-                contatosB[indiceEncontrado].setNome(novoNome);
-            }
+            contactos[indiceEncontrado].setNome(novoNome);
         }
     }
     
     /**
      * print all the contacts
      */
-    public static void imprimeContato(String qlLista)
+    public void imprimirContacto()
     {
-        if (qlLista.equalsIgnoreCase("A")){
-            for(int i = 0; i < qtdContatosA; i++){
-                System.out.print((i + 1) + ". ");
-                System.out.println(contatosA[i].toString());
-            }
-        } else{
-            for(int i = 0; i < qtdContatosB; i++){
-                System.out.print((i + 1) + ". ");
-                System.out.println(contatosA[i].toString());
-            }
+        for(int i = 0; i < qtdContactos; i++){
+            System.out.print((i + 1) + ". ");
+            System.out.println(contactos[i].toString());
         }
     }
     
     /**
      * print a contact
      */
-    public static void imprimeContato(int telm, String qlLista)
+    public void imprimeContato(int telm, String qlLista)
     {
         int indiceEncontrado = 999;
-        
-        if (qlLista.equalsIgnoreCase("A")){
-            for (int i = 0; i < qtdContatosA; i++){
-                if (telm == contatosA[i].getNumTelm()){
-                    indiceEncontrado = i;
-                }
+        for (int i = 0; i < qtdContactos; i++){
+            if (telm == contactos[i].getNumTelm()){
+                indiceEncontrado = i;
             }
-        
-            if (indiceEncontrado != 999){
-                System.out.println(contatosA[indiceEncontrado].toString());
-            }
-        } else{
-            for (int i = 0; i < qtdContatosB; i++){
-                if (telm == contatosB[i].getNumTelm()){
-                    indiceEncontrado = i;
-                }
-            }
-        
-            if (indiceEncontrado != 999){
-                System.out.println(contatosB[indiceEncontrado].toString());
-            }
+        }
+    
+        if (indiceEncontrado != 999){
+            System.out.println(contactos[indiceEncontrado].toString());
         }
     }
 }

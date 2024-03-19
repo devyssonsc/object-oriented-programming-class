@@ -13,13 +13,14 @@ public class Teste //Has composition between Teste and Contato (Teste has a Cont
     public static void main(String[] args)
     {
         Scanner input = new Scanner(System.in);
-        GestorWhatsapp gw = new GestorWhatsapp();
+        GestorWhatsapp listaA = new GestorWhatsapp(50);
+        GestorWhatsapp listaB = new GestorWhatsapp(100);
         String option;
         String novoNome;
         int novoNumTelm;
         int telmAlterado;
         String qlLista;
-        int contatoPesquisado;
+        int contactoPesquisado;
         
         do{
             System.out.println("a. Inserir contactos\nb. Alterar o nome de um contacto\nc. Pesquisar contactos\nd. Imprimir os contactos\ne. Encerrar");
@@ -43,7 +44,13 @@ public class Teste //Has composition between Teste and Contato (Teste has a Cont
                         novoNumTelm = input.nextInt();
                         input.nextLine();
                     } while ((novoNumTelm / 100000000) < 1 || (novoNumTelm / 100000000) > 10); //verifica se o número tem 9 dígitos
-                    gw.insereContato(novoNome, novoNumTelm, qlLista);
+                    
+                    if (qlLista.equalsIgnoreCase("A")){
+                        listaA.insereContacto(novoNome, novoNumTelm);
+                    } else{
+                        listaB.insereContacto(novoNome, novoNumTelm);
+                    }
+                    
                     System.out.println("\n--------------------------------------------------");
                     break;
                 case "b":
@@ -61,7 +68,13 @@ public class Teste //Has composition between Teste and Contato (Teste has a Cont
                         System.out.print("Novo nome do contacto: ");
                         novoNome = input.nextLine();
                     } while (novoNome.equalsIgnoreCase(""));
-                    gw.alterarNome(telmAlterado, novoNome, qlLista);
+                    
+                    if (qlLista.equalsIgnoreCase("A")){
+                        listaA.alterarNome(telmAlterado, novoNome);
+                    } else{
+                        listaB.alterarNome(telmAlterado, novoNome);
+                    }
+                    
                     System.out.println("\n--------------------------------------------------");
                     break;
                 case "c":
@@ -72,9 +85,15 @@ public class Teste //Has composition between Teste and Contato (Teste has a Cont
                     
                     do{
                         System.out.print("Nome que deseja pesquisar: ");
-                        contatoPesquisado = input.nextInt();
-                    } while((contatoPesquisado / 100000000) < 1 || (contatoPesquisado / 100000000) > 10);
-                    gw.pesquisaContato(contatoPesquisado, qlLista);
+                        contactoPesquisado = input.nextInt();
+                    } while((contactoPesquisado / 100000000) < 1 || (contactoPesquisado / 100000000) > 10);
+                    
+                    if (qlLista.equalsIgnoreCase("A")){
+                        listaA.pesquisarContacto(contactoPesquisado);
+                    } else{
+                        listaB.pesquisarContacto(contactoPesquisado);
+                    }
+                    
                     System.out.println("\n--------------------------------------------------");
                     break;
                 case "d":
@@ -83,7 +102,12 @@ public class Teste //Has composition between Teste and Contato (Teste has a Cont
                         qlLista = input.nextLine();
                     }while (!qlLista.equalsIgnoreCase("A") && !qlLista.equalsIgnoreCase("B"));
                     
-                    gw.imprimeContato(qlLista);
+                    if (qlLista.equalsIgnoreCase("A")){
+                        listaA.imprimirContacto();
+                    } else{
+                        listaB.imprimirContacto();
+                    }
+                    
                     System.out.println("\n--------------------------------------------------");
                     break;
             }
