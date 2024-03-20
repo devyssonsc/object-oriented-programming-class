@@ -9,16 +9,13 @@
 public class GestorWhatsapp
 {
     public Contacto[] contactos;
-    int qtdContactos;
+    int qtdContactos = 0;
     int total;
     
     //Constructor
     public GestorWhatsapp(int num)
     {
-        total = num;
-        qtdContactos = 0;
-        
-        contactos = new Contacto[total];
+        contactos = new Contacto[num];
     }
     
     /**

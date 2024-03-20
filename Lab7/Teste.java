@@ -21,6 +21,7 @@ public class Teste //Has composition between Teste and Contato (Teste has a Cont
         int telmAlterado;
         String qlLista;
         int contactoPesquisado;
+        int result;
         
         do{
             System.out.println("a. Inserir contactos\nb. Alterar o nome de um contacto\nc. Pesquisar contactos\nd. Imprimir os contactos\ne. Encerrar");
@@ -89,9 +90,15 @@ public class Teste //Has composition between Teste and Contato (Teste has a Cont
                     } while((contactoPesquisado / 100000000) < 1 || (contactoPesquisado / 100000000) > 10);
                     
                     if (qlLista.equalsIgnoreCase("A")){
-                        listaA.pesquisarContacto(contactoPesquisado);
+                        result = listaA.pesquisarContacto(contactoPesquisado);
                     } else{
-                        listaB.pesquisarContacto(contactoPesquisado);
+                        result = listaB.pesquisarContacto(contactoPesquisado);
+                    }
+                    
+                    if (result == -1){
+                        System.out.println("Contacto não encontrado");
+                    } else{
+                        System.out.println("Contacto encontrado na posição" + result);
                     }
                     
                     System.out.println("\n--------------------------------------------------");
