@@ -28,10 +28,9 @@ public class GestorWhatsapp
     
     public int pesquisarContacto(int telm)
     {
-        int indiceEncontrado = 999;
         for (int i = 0; i < qtdContactos; i++){
             if (telm == contactos[i].getNumTelm()){
-                return indiceEncontrado;
+                return i;
             }
         }
         
@@ -43,19 +42,12 @@ public class GestorWhatsapp
      */
     public void alterarNome(int telm, String novoNome)
     {
-        int indiceEncontrado = 999;
+        int result = pesquisarContacto(telm);
         
-        
-        for (int i = 0; i < qtdContactos; i++){
-            if (telm == contactos[i].getNumTelm()){
-                indiceEncontrado = i;
-            }
-        }
-        
-        if (indiceEncontrado == 999){
-            System.out.println("Número não encontrado");    
+        if (result == -1){
+            System.out.println("Não existe um contacto com esse número");
         } else{
-            contactos[indiceEncontrado].setNome(novoNome);
+            contactos[result].setNome(novoNome);
         }
     }
     
@@ -73,17 +65,14 @@ public class GestorWhatsapp
     /**
      * print a contact
      */
-    public void imprimeContato(int telm, String qlLista)
+    public void imprimirUmContacto(int telm)
     {
-        int indiceEncontrado = 999;
-        for (int i = 0; i < qtdContactos; i++){
-            if (telm == contactos[i].getNumTelm()){
-                indiceEncontrado = i;
-            }
-        }
-    
-        if (indiceEncontrado != 999){
-            System.out.println(contactos[indiceEncontrado].toString());
+        int result = pesquisarContacto(telm);
+        
+        if (result == -1){
+            System.out.println("Não existe um contacto com esse número");
+        } else{
+            System.out.println(contactos[result].toString());
         }
     }
 }

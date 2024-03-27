@@ -22,13 +22,14 @@ public class Teste //Has composition between Teste and Contato (Teste has a Cont
         String qlLista;
         int contactoPesquisado;
         int result;
+        int telmImpresso;
         
         do{
-            System.out.println("a. Inserir contactos\nb. Alterar o nome de um contacto\nc. Pesquisar contactos\nd. Imprimir os contactos\ne. Encerrar");
+            System.out.println("a. Inserir contactos\nb. Alterar o nome de um contacto\nc. Pesquisar contactos\nd. Imprimir um contacto\ne. Imprimir os contactos\nf. Encerrar");
             option = input.nextLine();
-        } while (!option.equalsIgnoreCase("a") && !option.equalsIgnoreCase("b") && !option.equalsIgnoreCase("c") && !option.equalsIgnoreCase("d") && !option.equalsIgnoreCase("e"));
+        } while (!option.equalsIgnoreCase("a") && !option.equalsIgnoreCase("b") && !option.equalsIgnoreCase("c") && !option.equalsIgnoreCase("d") && !option.equalsIgnoreCase("e") && !option.equalsIgnoreCase("f"));
         
-        while (!option.equalsIgnoreCase("e")){
+        while (!option.equalsIgnoreCase("f")){
             switch (option){
                 case "a":
                     do{
@@ -85,8 +86,9 @@ public class Teste //Has composition between Teste and Contato (Teste has a Cont
                     }while (!qlLista.equalsIgnoreCase("A") && !qlLista.equalsIgnoreCase("B"));
                     
                     do{
-                        System.out.print("Nome que deseja pesquisar: ");
+                        System.out.print("Número de telemóvel que deseja pesquisar: ");
                         contactoPesquisado = input.nextInt();
+                        input.nextLine();
                     } while((contactoPesquisado / 100000000) < 1 || (contactoPesquisado / 100000000) > 10);
                     
                     if (qlLista.equalsIgnoreCase("A")){
@@ -98,12 +100,32 @@ public class Teste //Has composition between Teste and Contato (Teste has a Cont
                     if (result == -1){
                         System.out.println("Contacto não encontrado");
                     } else{
-                        System.out.println("Contacto encontrado na posição" + result);
+                        System.out.println("Contacto encontrado na " + (result+1) + "ª posição");
                     }
                     
                     System.out.println("\n--------------------------------------------------");
                     break;
                 case "d":
+                    do{
+                        System.out.println("De qual lista é o contacto que deseja imprimir?\nA) Lista A\nB) Lista B");
+                        qlLista = input.nextLine();
+                    }while (!qlLista.equalsIgnoreCase("A") && !qlLista.equalsIgnoreCase("B"));
+                    
+                    do{
+                        System.out.print("Número do contacto que deseja imprimir: ");
+                        telmImpresso = input.nextInt();
+                        input.nextLine();
+                    } while((telmImpresso / 100000000) < 1 || (telmImpresso / 100000000) > 10);
+                    
+                    if (qlLista.equalsIgnoreCase("A")){
+                        listaA.imprimirUmContacto(telmImpresso);
+                    } else{
+                        listaB.imprimirUmContacto(telmImpresso);
+                    }
+                    
+                    System.out.println("\n--------------------------------------------------");
+                    break;
+                case "e":
                     do{
                         System.out.println("Qual lista deseja imprimir?\nA) Lista A\nB) Lista B");
                         qlLista = input.nextLine();
@@ -120,9 +142,10 @@ public class Teste //Has composition between Teste and Contato (Teste has a Cont
             }
             
             do{
-                System.out.println("a. Inserir contactos\nb. Alterar o nome de um contacto\nc. Pesquisar contactos\nd. Imprimir os contactos\ne. Encerrar");
+                System.out.println("a. Inserir contactos\nb. Alterar o nome de um contacto\nc. Pesquisar contactos\nd. Imprimir um contacto\ne. Imprimir os contactos\nf. Encerrar");
                 option = input.nextLine();
-            } while (!option.equalsIgnoreCase("a") && !option.equalsIgnoreCase("b") && !option.equalsIgnoreCase("c") && !option.equalsIgnoreCase("d") && !option.equalsIgnoreCase("e"));
+            } while (!option.equalsIgnoreCase("a") && !option.equalsIgnoreCase("b") && !option.equalsIgnoreCase("c") && !option.equalsIgnoreCase("d") && !option.equalsIgnoreCase("e") && !option.equalsIgnoreCase("f"));
+            
         }
     }
     
