@@ -22,7 +22,6 @@ public class Foto
     }
     
     //instance methods
-    
     public String toString()
     {
         return "Descrição: " + desc + " Link: " + link + " Tamanho: " + bytes + " bytes Tag: " + tag;

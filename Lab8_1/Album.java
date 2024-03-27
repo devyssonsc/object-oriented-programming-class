@@ -10,7 +10,6 @@ public class Album
     //instance variables
     private String nomeAlbum;
     private Foto listaFotos[];
-    int totalBytes = 0;
     
     //class variables
     static int qtdFotos = 0;
@@ -23,18 +22,19 @@ public class Album
     }
     
     //methods
+    
     public void inserirFotografia(String desc, String link, int bytes, String tag)
     {
         listaFotos[qtdFotos++] = new Foto(desc, link, bytes, tag);
-        totalBytes += bytes;
     }
     
-    public int imprimirTotalBytes()
+    public void imprimirBytesTotais()
     {
+        int totalBytes = 0;
         for (int i = 0; i < qtdFotos; i++){
             totalBytes += listaFotos[i].getBytes();
         }
-        return totalBytes; 
+        System.out.println("Espaço total do album: " + totalBytes + " bytes");
     }
     
     public void imprimirFotografias()
@@ -44,6 +44,7 @@ public class Album
         }
     }
     
+
     public void imprimirDescricao(String tag)
     {
         for (int i = 0; i < qtdFotos; i++){
@@ -57,7 +58,7 @@ public class Album
     {
         for (int i = 0; i < qtdFotos; i++){
             if (desc.equalsIgnoreCase(listaFotos[i].getDesc())){
-                System.out.println(listaFotos[i].toString());
+                System.out.println("A foto está na posição " + listaFotos[i]);
                 return i;
             }
         }
@@ -70,6 +71,7 @@ public class Album
         int indice = pesquisarFotografia(desc);
         if (indice != -1){
             listaFotos[indice].setLink(newLink);
+            System.out.println("\n------------------------\nLink Atualizado\n------------------------");
         }
     }
 }//class end
