@@ -100,7 +100,9 @@ public class Teste
                     System.out.println("--------------------------------");
                     break;
                 case "c":
-                    //album1.imprimirFotografias();
+                    for (int i = 0; i < qtdAlbuns; i++){
+                        listaAlbuns[i].imprimirFotografias();
+                    }
                     System.out.println("--------------------------------");
                     break;
                 case "d":
@@ -108,7 +110,10 @@ public class Teste
                         System.out.print("Deseja imprimir as fotos de qual tag? ");
                         tagImpressa = input.nextLine();
                     } while (tagImpressa.equals(""));
-                    //album1.imprimirDescricao(tagImpressa);
+                    
+                    for (int i = 0; i < qtdAlbuns; i++){
+                        listaAlbuns[i].imprimirDescricao(tagImpressa);
+                    }
                     
                     System.out.println("--------------------------------");
                     break;
@@ -117,7 +122,10 @@ public class Teste
                         System.out.print("Descrição que deseja pesquisar: ");
                         descPesquisada = input.nextLine();
                     } while (descPesquisada.equals(""));
-                    //album1.pesquisarFotografia(descPesquisada);
+                    
+                    for (int i = 0; i < qtdAlbuns; i++){
+                        listaAlbuns[i].pesquisarFotografia(descPesquisada);
+                    }
                     
                     System.out.println("--------------------------------");
                     break;
@@ -132,7 +140,9 @@ public class Teste
                         novoLink = input.nextLine();
                     } while (novoLink.equals(""));
                     
-                    //album1.atualizarLink(descAtualizada, novoLink);
+                    for (int i = 0; i < qtdAlbuns; i++){
+                        listaAlbuns[i].atualizarLink(descAtualizada, novoLink);
+                    }
                     
                     System.out.println("--------------------------------");
                     break;

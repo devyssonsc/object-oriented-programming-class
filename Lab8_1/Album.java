@@ -53,7 +53,7 @@ public class Album
     }
     
 
-    public void imprimirDescricao(String tag)
+    public void imprimirDescricao(String tag) //consertar else
     {
         for (int i = 0; i < qtdFotos; i++){
             if (tag.equalsIgnoreCase(listaFotos[i].getTag())){
@@ -62,24 +62,23 @@ public class Album
         }
     }
     
-    public int pesquisarFotografia(String desc)
+    public int pesquisarFotografia(String desc) //consertar else
     {
         for (int i = 0; i < qtdFotos; i++){
             if (desc.equalsIgnoreCase(listaFotos[i].getDesc())){
-                System.out.println("A foto está na posição " + listaFotos[i]);
+                System.out.println(listaFotos[i]);
                 return i;
             }
         }
-        System.out.println("Não existe esta foto");
         return -1;
     }
     
-    public void atualizarLink(String desc, String newLink)
+    public void atualizarLink(String desc, String newLink) //consertar else
     {
         int indice = pesquisarFotografia(desc);
         if (indice != -1){
             listaFotos[indice].setLink(newLink);
-            System.out.println("\n------------------------\nLink Atualizado\n------------------------");
+            System.out.println("Link Atualizado");
         }
     }
 }//class end
