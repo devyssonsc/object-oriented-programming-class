@@ -10,31 +10,39 @@ public class Album
     //instance variables
     private String nomeAlbum;
     private Foto listaFotos[];
-    
-    //class variables
-    static int qtdFotos = 0;
+    private int qtdFotos = 0;
     
     //constructor
     public Album(String nome)
     {
         this.nomeAlbum = nome;
         listaFotos = new Foto[100];
+        qtdFotos = 0;
     }
     
     //methods
+    public String getNameAlbum()
+    {
+        return nomeAlbum;
+    }
+    
+    public void setNameAlbum(String novoNome)
+    {
+        nomeAlbum = novoNome;
+    }
     
     public void inserirFotografia(String desc, String link, int bytes, String tag)
     {
         listaFotos[qtdFotos++] = new Foto(desc, link, bytes, tag);
     }
     
-    public void imprimirBytesTotais()
+    public int imprimirBytesTotais()
     {
         int totalBytes = 0;
         for (int i = 0; i < qtdFotos; i++){
             totalBytes += listaFotos[i].getBytes();
         }
-        System.out.println("Espaço total do album: " + totalBytes + " bytes");
+        return totalBytes;
     }
     
     public void imprimirFotografias()
