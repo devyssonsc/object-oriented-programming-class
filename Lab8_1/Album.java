@@ -53,13 +53,14 @@ public class Album
     }
     
 
-    public void imprimirDescricao(String tag) //consertar else
+    public String imprimirDescricao(String tag)
     {
         for (int i = 0; i < qtdFotos; i++){
             if (tag.equalsIgnoreCase(listaFotos[i].getTag())){
-                System.out.println(listaFotos[i].getDesc());
+                return listaFotos[i].getDesc();
             }
         }
+        return "";
     }
     
     public int pesquisarFotografia(String desc) //consertar else

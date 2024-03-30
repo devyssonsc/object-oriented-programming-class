@@ -11,7 +11,6 @@ public class Teste
     public static void main(String[] args)
     {
         Scanner input = new Scanner(System.in);
-        //Album album1 = new Album("Album1");
         Album listaAlbuns[] = new Album[10];
         String option;
         String descricao;
@@ -24,6 +23,8 @@ public class Teste
         String novoLink;
         String nomeAlbum;
         int selectAlbum;
+        String res;
+        int indice;
         
         int qtdAlbuns = 0;
         
@@ -111,8 +112,17 @@ public class Teste
                         tagImpressa = input.nextLine();
                     } while (tagImpressa.equals(""));
                     
+                    boolean encontrouTag = false;
                     for (int i = 0; i < qtdAlbuns; i++){
-                        listaAlbuns[i].imprimirDescricao(tagImpressa);
+                        res = listaAlbuns[i].imprimirDescricao(tagImpressa);
+                        if (!res.equals("")){
+                            System.out.println(res);
+                            encontrouTag = true;
+                        }
+                    }
+                    
+                    if (!encontrouTag){
+                        System.out.println("Não existe foto com a tag '" + tagImpressa + "'");
                     }
                     
                     System.out.println("--------------------------------");
