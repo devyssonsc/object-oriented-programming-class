@@ -9,18 +9,31 @@ import java.util.ArrayList;
 public class Clube
 {
     //instance variables
-    String nomeCLube;
-    int numJog;
-    ArrayList <Jogador> jogadores = new ArrayList<Jogador>();
-    int totalJ;
+    private String nomeCLube;
+    private int numJog;
+    private ArrayList <Jogador> jogadores;
+    private int totalJ;     //perguntar sobre enunciado
     
-    //instance methods
-    public void registaJogador(Jogador novoJ)
+    //constructor
+    public Clube(int tam)
     {
-        jogadores.add(novoJ);
+       numJog = 0;
+       jogadores = new ArrayList<Jogador>(tam);
+       totalJ = tam;
     }
     
-    public int pesquisaJog(String nome, byte numero)
+    //instance methods
+    public void registrarJogador(String nome, byte numero)
+    {
+        if(jogadores.size() < totalJ){
+            Jogador novoJ = new Jogador(nome, numero);
+            jogadores.add(novoJ);
+        } else{
+            System.out.println("O clube chegou ao seu limite de jogadores " + "(" + totalJ + ")");
+        }
+    }
+    
+    public int pesquisarJog(String nome, byte numero)
     {
         for(Jogador jogador:jogadores){
             if(nome.equalsIgnoreCase(jogador.getNome()) && numero == jogador.getNumero()){
@@ -30,7 +43,7 @@ public class Clube
         return -1;
     }
     
-    public void imprime()
+    public void imprimir()
     {
         for(Jogador jogador:jogadores){
             System.out.println((jogadores.indexOf(jogador) + 1) + "-" + jogador);//.toString();

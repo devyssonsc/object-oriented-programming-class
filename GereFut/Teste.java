@@ -2,32 +2,47 @@
 /**
  * Escreva uma descrição da classe Teste aqui.
  * 
- * @author (seu nome) 
- * @version (um número da versão ou uma data)
+ * @author Devysson S. Cardoso
+ * @version 03.04.2024
  */
+import java.util.Scanner;
 public class Teste
 {
-    // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
-    private int x;
-
-    /**
-     * Construtor para objetos da classe Teste
-     */
-    public Teste()
+    public static void main (String args[])
     {
-        // inicializa variáveis de instância
-        x = 0;
-    }
-
-    /**
-     * Um exemplo de um método - substitua este comentário pelo seu próprio
-     * 
-     * @param  y   um exemplo de um parâmetro de método
-     * @return     a soma de x e y 
-     */
-    public int sampleMethod(int y)
-    {
-        // escreva seu código aqui
-        return x + y;
+        Clube FCP = new Clube(30);
+        Scanner input = new Scanner(System.in);
+        String option;
+        String newName;
+        int newNum;
+        
+        do{
+            System.out.println("Gerenciamento do clube:\na. Registrar jogador\nb. Pesquisar jogador\nc. Imprimir detalhes dos jogadores\nd. Imprimir total de cartões amarelos do clube\ne. Registrar cartão para um jogador\nf. Imprime o número de jogadores do clube");
+            option = input.nextLine();
+        } while(!option.equalsIgnoreCase("a") && !option.equalsIgnoreCase("b") && !option.equalsIgnoreCase("c") && !option.equalsIgnoreCase("d") && !option.equalsIgnoreCase("e") && !option.equalsIgnoreCase("f") && !option.equalsIgnoreCase("g"));
+        
+        while(!option.equalsIgnoreCase("a")){
+            
+            switch(option){
+                case "a":
+                    do{
+                        System.out.print("Nome: ");
+                        newName = input.nextLine();
+                    } while(!newName.equals(""));
+                    
+                    do{
+                        System.out.print("Nome: ");
+                        newNum = input.nextInt();
+                        input.nextLine();
+                    } while(newNum < 0 && newNum >= 100);
+                    
+                    FCP.regista
+            }
+            
+            do{
+                System.out.println("Gerenciamento do clube:\na. Registrar jogador\nb. Pesquisar jogador\nc. Imprimir detalhes dos jogadores\nd. Imprimir total de cartões amarelos do clube\ne. Registrar cartão para um jogador\nf. Imprime o número de jogadores do clube");
+                option = input.nextLine();
+            } while(!option.equalsIgnoreCase("a") && !option.equalsIgnoreCase("b") && !option.equalsIgnoreCase("c") && !option.equalsIgnoreCase("d") && !option.equalsIgnoreCase("e") && !option.equalsIgnoreCase("f") && !option.equalsIgnoreCase("g"));
+        }
     }
 }

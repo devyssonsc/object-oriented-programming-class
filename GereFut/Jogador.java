@@ -13,11 +13,11 @@ public class Jogador
     private short cartoes;
     
     //contructor
-    public Jogador(String nome, byte numero, short cartoes)
+    public Jogador(String nome, byte numero)
     {
         this.nome = nome;
         this.numero = numero;
-        this.cartoes = cartoes;
+        cartoes = 0;
     }
     
     //instance methods
