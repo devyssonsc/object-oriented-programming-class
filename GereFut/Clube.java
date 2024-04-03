@@ -46,5 +46,9 @@ public class Clube
         System.out.println(totalCartoes);
     }
     
-    
+    public void registaCartao(String nome, byte num)
+    {
+        int indice = pesquisaJog(nome, num);
+        jogadores.get(indice).setCartoes((short) 1);
+    }
 }
