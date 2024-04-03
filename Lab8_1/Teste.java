@@ -133,8 +133,17 @@ public class Teste
                         descPesquisada = input.nextLine();
                     } while (descPesquisada.equals(""));
                     
+                    boolean encontrouDesc = false;
                     for (int i = 0; i < qtdAlbuns; i++){
-                        listaAlbuns[i].pesquisarFotografia(descPesquisada);
+                        indice = listaAlbuns[i].pesquisarFotografia(descPesquisada);
+                        if (indice != -1){
+                            encontrouDesc = true;
+                            System.out.println(listaAlbuns[i].getListaFotos(indice));
+                        }
+                    }
+                    
+                    if (!encontrouDesc){
+                        System.out.println("Não existe foto com a descrição '" + descPesquisada + "'");
                     }
                     
                     System.out.println("--------------------------------");
@@ -150,9 +159,15 @@ public class Teste
                         novoLink = input.nextLine();
                     } while (novoLink.equals(""));
                     
-                    for (int i = 0; i < qtdAlbuns; i++){
-                        listaAlbuns[i].atualizarLink(descAtualizada, novoLink);
+                    boolean atualizouLink = false;
+                    int aux = 0;
+                    while (aux < qtdAlbuns && !atualizouLink){
+                        atualizouLink = listaAlbuns[aux++].atualizarLink(descAtualizada, novoLink);
                     }
+                    
+                    if (!atualizouLink){
+                            System.out.println("Não existe foto com a descrição '" + descAtualizada + "'");
+                        }
                     
                     System.out.println("--------------------------------");
                     break;

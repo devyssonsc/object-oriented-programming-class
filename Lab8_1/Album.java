@@ -21,6 +21,11 @@ public class Album
     }
     
     //methods
+    public Foto getListaFotos(int i)
+    {
+        return listaFotos[i];
+    }
+    
     public String getNameAlbum()
     {
         return nomeAlbum;
@@ -48,7 +53,7 @@ public class Album
     public void imprimirFotografias()
     {
         for (int i = 0; i < qtdFotos; i++){
-            System.out.println(listaFotos[i]);//.toString());
+            System.out.println(listaFotos[i]);//.toString()
         }
     }
     
@@ -63,23 +68,24 @@ public class Album
         return "";
     }
     
-    public int pesquisarFotografia(String desc) //consertar else
+    public int pesquisarFotografia(String desc)
     {
         for (int i = 0; i < qtdFotos; i++){
             if (desc.equalsIgnoreCase(listaFotos[i].getDesc())){
-                System.out.println(listaFotos[i]);
                 return i;
             }
         }
         return -1;
     }
     
-    public void atualizarLink(String desc, String newLink) //consertar else
+    public boolean atualizarLink(String desc, String newLink) //consertar else
     {
         int indice = pesquisarFotografia(desc);
         if (indice != -1){
             listaFotos[indice].setLink(newLink);
             System.out.println("Link Atualizado");
+            return true;
         }
+        return false;
     }
 }//class end
