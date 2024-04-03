@@ -33,7 +33,7 @@ public class Clube
     public void imprime()
     {
         for(Jogador jogador:jogadores){
-            System.out.println(jogador);//.toString();
+            System.out.println((jogadores.indexOf(jogador) + 1) + "-" + jogador);//.toString();
         }
     }
     
@@ -41,14 +41,19 @@ public class Clube
     {
         int totalCartoes = 0;
         for(Jogador jogador:jogadores){
-            totalCartoes = jogador.getCartoes();
+            totalCartoes += jogador.getCartoes();
         }
-        System.out.println(totalCartoes);
+        System.out.println(totalCartoes + " cartões");
     }
     
     public void registaCartao(String nome, byte num)
     {
         int indice = pesquisaJog(nome, num);
         jogadores.get(indice).setCartoes((short) 1);
+    }
+    
+    public void totalJ()
+    {
+        System.out.println(jogadores.size() + " jogadores");
     }
 }
