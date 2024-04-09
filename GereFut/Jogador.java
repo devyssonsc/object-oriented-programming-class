@@ -43,6 +43,6 @@ public class Jogador
     
     public String toString()
     {
-        return "Nome: " + nome + " - Número: " + numero + "- Nº de cartões: " + cartoes;
+        return "Nome: " + nome + " - Número: " + numero + " - Nº de cartões: " + cartoes;
     }
 }

@@ -9,24 +9,24 @@ import java.util.ArrayList;
 public class Clube
 {
     //instance variables
-    private String nomeCLube;
+    private String nomeClube;
     private int numJog;
     private ArrayList <Jogador> jogadores;
     private int totalJ;     //perguntar sobre enunciado
     
     //constructor
-    public Clube(int tam)
+    public Clube(String nomeClube, int tam)
     {
-       numJog = 0;
-       jogadores = new ArrayList<Jogador>(tam);
-       totalJ = tam;
+        this.nomeClube = nomeClube;
+        numJog = 0;
+        jogadores = new ArrayList<Jogador>(tam);
+        totalJ = tam;
     }
     
     //instance methods
-    public void registrarJogador(String nome, byte numero)
+    public void registrarJogador(Jogador novoJ)
     {
         if(jogadores.size() < totalJ){
-            Jogador novoJ = new Jogador(nome, numero);
             jogadores.add(novoJ);
         } else{
             System.out.println("O clube chegou ao seu limite de jogadores " + "(" + totalJ + ")");
@@ -59,9 +59,9 @@ public class Clube
         System.out.println(totalCartoes + " cartões");
     }
     
-    public void registaCartao(String nome, byte num)
+    public void registrarCartao(String nome, byte num)
     {
-        int indice = pesquisaJog(nome, num);
+        int indice = pesquisarJog(nome, num);
         jogadores.get(indice).setCartoes((short) 1);
     }
     
