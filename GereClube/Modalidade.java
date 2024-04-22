@@ -7,27 +7,35 @@
  */
 public class Modalidade
 {
-    // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
-    private int x;
-
-    /**
-     * Construtor para objetos da classe Modalidade
-     */
-    public Modalidade()
+    //Variáveis de instância
+    private String nomeMod;
+    private int numPrat;
+    
+    //Construtor
+    public Modalidade(String newName)
     {
-        // inicializa variáveis de instância
-        x = 0;
+        nomeMod = newName;
+        numPrat = 0;
     }
-
-    /**
-     * Um exemplo de um método - substitua este comentário pelo seu próprio
-     * 
-     * @param  y   um exemplo de um parâmetro de método
-     * @return     a soma de x e y 
-     */
-    public int sampleMethod(int y)
+    
+    //Métodos de instância
+    public String getNomeMod()
     {
-        // escreva seu código aqui
-        return x + y;
+        return nomeMod;
+    }
+    
+    public int getNumPrat()
+    {
+        return numPrat;
+    }
+    
+    public void setNumPrat(int numPrat)
+    {
+        this.numPrat += numPrat;
+    }
+    
+    public String toString()
+    {
+        return "Modalidade: " + nomeMod + " Nº de praticantes: " + numPrat;
     }
 }

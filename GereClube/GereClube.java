@@ -2,32 +2,82 @@
 /**
  * Escreva uma descrição da classe GereClube aqui.
  * 
- * @author (seu nome) 
- * @version (um número da versão ou uma data)
+ * @author Devysson S. Cardoso
+ * @version 09.04.2024
  */
+import java.util.ArrayList;
 public class GereClube
 {
-    // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
-    private int x;
-
-    /**
-     * Construtor para objetos da classe GereClube
-     */
-    public GereClube()
+    private int numPratClube;
+    private String nomeClube;
+    private ArrayList<Modalidade> listaModalidades;
+    private int maxMods;
+    
+    public GereClube(String nomeClube, int maxMods)
     {
-        // inicializa variáveis de instância
-        x = 0;
+        numPratClube = 0;
+        this.nomeClube = nomeClube;
+        listaModalidades = new ArrayList<Modalidade>();
+        this.maxMods = maxMods;
     }
-
-    /**
-     * Um exemplo de um método - substitua este comentário pelo seu próprio
-     * 
-     * @param  y   um exemplo de um parâmetro de método
-     * @return     a soma de x e y 
-     */
-    public int sampleMethod(int y)
+    
+    public void inserirModalidade(String nomeMod)
     {
-        // escreva seu código aqui
-        return x + y;
+        if(listaModalidades.size() < maxMods){
+            listaModalidades.add(new Modalidade(nomeMod));
+        } else{
+            System.out.println("Número de modalidades máximo atingido: " + maxMods);
+        }
+    }
+    
+    public void imprimirPraticantesMod(String nomeMod)
+    {
+        for(Modalidade modalidade:listaModalidades){
+            if(nomeMod.equalsIgnoreCase(modalidade.getNomeMod())){
+                System.out.println(modalidade.getNumPrat() + " praticantes em " + nomeMod);
+            }
+        }
+    }
+    
+    public void imprimirModalidades()
+    {
+        for(Modalidade modalidade:listaModalidades){
+            System.out.println(modalidade);//.toString();
+        }
+    }
+    
+    public void contaP()
+    {
+        for(Modalidade modalidade:listaModalidades){
+            numPratClube += modalidade.getNumPrat();
+        }
+        System.out.println("O clube " + nomeClube + " tem " + numPratClube + " praticantes");
+    }
+    
+    public void registrarPraticante(String mod)
+    {
+        for(Modalidade modalidade: listaModalidades){
+            if(mod.equalsIgnoreCase(modalidade.getNomeMod())){
+                modalidade.setNumPrat(1);
+            }
+        }
+    }
+    
+    public void imprimirMaiorMod()
+    {
+        int maior = -1;
+        int indice = 0;
+        for(Modalidade modalidade: listaModalidades){
+            if(modalidade.getNumPrat() > maior){
+                maior = modalidade.getNumPrat();
+                indice = listaModalidades.indexOf(modalidade);
+            }
+        }
+        
+        if(maior == -1){
+            System.out.println("Não há praticantes no clube ainda");
+        } else{
+            System.out.println(listaModalidades.get(indice).getNomeMod() + " é a modalidade com maior número de praticantes: " + listaModalidades.get(indice).getNumPrat());
+        }
     }
 }
