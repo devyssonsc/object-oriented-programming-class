@@ -64,7 +64,7 @@ public class Autor {
 			}
 		}
 		
-		return "Autor [nome=" + nome + ", cc=" + cc + ", email=" + email + ", listaLivros=" + stringListaLivros + "]";
+		return "Livro [nome=" + nome + ", cc=" + cc + ", email=" + email + ", listaLivros=" + stringListaLivros + "]";
 	}
 	
 	
