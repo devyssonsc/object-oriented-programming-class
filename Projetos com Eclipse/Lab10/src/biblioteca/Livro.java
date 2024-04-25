@@ -82,6 +82,6 @@ String stringListaAutores = "";
 			}
 		}
 		
-		return "Autor [Título=" + titulo + ", Ano=" + ano + ", ISBN=" + isbn + ", Editora=" + editora + ", listaAutores=" + stringListaAutores + "]";
+		return titulo + " (" + ano + ") - Código ISBN: " + isbn + "\nEditora: " + editora + "\nAutores: " + stringListaAutores + "\n----------\n";
 	}
-}
+}//fim da classe

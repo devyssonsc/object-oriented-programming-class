@@ -78,8 +78,8 @@ public class Autor {
 			}
 		}
 		
-		return "Livro [nome=" + nome + ", cc=" + cc + ", email=" + email + ", listaLivros=" + stringListaLivros + "]";
+		return nome + "\nNº de Identificação: " + cc + "\nEmail: " + email + "\nLivros: " + stringListaLivros + "\n----------\n";
 	}
 	
 	
-}
+}//fim da classe

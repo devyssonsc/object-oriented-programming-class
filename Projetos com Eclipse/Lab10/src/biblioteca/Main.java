@@ -39,12 +39,16 @@ public class Main {
 						System.out.print("Ano: ");
 						ano = input.nextInt();
 						input.nextLine();
-					} while(ano < 1900 && ano > LocalDate.now().getYear());
+					} while(ano < 1900 || ano > LocalDate.now().getYear());
 					
-					do {
+					
+					System.out.print("Código ISBN: ");
+					isbn = input.nextLine();
+					while(!isbn.matches("\\d{10}") || biblioteca.pesquisarLivro(isbn) != -1) {
+						System.out.println("\nJá existe um livro com este código!");
 						System.out.print("Código ISBN: ");
 						isbn = input.nextLine();
-					} while(!isbn.matches("\\d{10}"));
+					}
 					
 					do {
 						System.out.print("Editora: ");
@@ -64,12 +68,35 @@ public class Main {
 						nome = input.nextLine();
 					} while(nome.equals(""));
 					
+					while(nome.equalsIgnoreCase("Terminar")) {
+						if(newLivro.getListaAutores().size() < 1) {
+							System.out.println("\nTodos os livros devem ter pelo menos 1 autor!");
+							do {
+								System.out.print("Autores ('Terminar' para finalizar a lista de autores): ");
+								nome = input.nextLine();
+							} while(nome.equals(""));
+						}
+					}
+					
 					while(!nome.equalsIgnoreCase("Terminar")) {
 						
-						do {
+						
+						do{
 							System.out.print("Nº do Cartão do Cidadão: ");
 							cc = input.nextLine();
-						} while(!cc.matches("\\d{12}"));
+						} while (!cc.matches("\\d{12}"));
+						
+						int indiceAutor = biblioteca.pesquisarAutor(cc);
+						
+						while(indiceAutor != -1 && biblioteca.getAutores().get(indiceAutor).getNome() != nome) {
+							System.out.println("\nJá existe um autor com este cartão do cidadão!");
+							do {
+								System.out.print("Nº do Cartão do Cidadão: ");
+								cc = input.nextLine();
+							} while (!cc.matches("\\d{12}"));
+							
+							indiceAutor = biblioteca.pesquisarAutor(cc);
+						}
 						
 						do {
 				            System.out.println("Digite seu e-mail:");
@@ -106,12 +133,17 @@ public class Main {
 					System.out.println("***********************************************************");
 					break;
 				case "d":
+					do {
+						System.out.println("Número do Cartão do Cidadão do autor que deseja saber os detalhes: ");
+						cc = input.nextLine();
+					} while(!cc.matches("\\d{12}"));
 					
+					biblioteca.imprimirLivrosAutores(cc);
 					
 					System.out.println("***********************************************************");
 					break;
 				case "e":
-					
+					biblioteca.imprimirLivrosAutores();
 					
 					System.out.println("***********************************************************");
 					break;
@@ -130,4 +162,4 @@ public class Main {
 		input.close();
 	}
 
-}
+}//fim da classe
