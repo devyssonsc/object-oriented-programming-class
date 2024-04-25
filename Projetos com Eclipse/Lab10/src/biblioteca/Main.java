@@ -96,7 +96,12 @@ public class Main {
 					System.out.println("***********************************************************");
 					break;
 				case "c":
+					do {
+						System.out.println("Código ISBN do livro que deseja imprimir os detalhes: ");
+						isbn = input.nextLine();
+					} while(!isbn.matches("\\d{10}"));
 					
+					biblioteca.imprimirDetalhesLivros(isbn);
 					
 					System.out.println("***********************************************************");
 					break;

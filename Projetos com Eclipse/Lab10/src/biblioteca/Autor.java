@@ -51,6 +51,20 @@ public class Autor {
 	public ArrayList<Livro> getListaLivros() {
 		return listaLivros;
 	}
+	
+	public String getStringListaLivros() {
+		String stringListaLivros = "";
+		
+		for(Livro livro:listaLivros) {
+			if(listaLivros.indexOf(livro) != listaLivros.size() - 1) {
+				stringListaLivros += livro.getTitulo() + ", ";
+			} else {
+				stringListaLivros += livro.getTitulo();
+			}
+		}
+		
+		return stringListaLivros;
+	}
 
 	@Override
 	public String toString() {

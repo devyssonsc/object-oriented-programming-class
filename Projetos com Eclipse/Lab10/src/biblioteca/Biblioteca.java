@@ -12,16 +12,33 @@ public class Biblioteca {
 		autores = new ArrayList<Autor>();
 	}
 	
+	
 	public void adicionarLivro(Livro newLivro)
 	{
 		livros.add(newLivro);
 	}
 	
+	public int pesquisarAutor(String cc)
+	{
+		for(Autor autor:autores) {
+			if(autor.getCc().equals(cc)) {
+				return autores.indexOf(autor);
+			}
+		}
+		return -1;
+	}
+	
 	public void adicionarAutor(Autor newAutor)
 	{
-		livros.get(livros.size() - 1).getListaAutores().add(newAutor);
-		autores.add(newAutor);
-		autores.get(autores.size() - 1).getListaLivros().add(livros.get(livros.size() - 1));
+		int indice = pesquisarAutor(newAutor.getCc());
+		if(indice == -1) {
+			newAutor.getListaLivros().add(livros.get(livros.size() - 1));
+			autores.add(newAutor);
+			livros.get(livros.size() - 1).getListaAutores().add(newAutor);
+		} else {
+			livros.get(livros.size() - 1).getListaAutores().add(newAutor);
+			autores.get(indice).getListaLivros().add(livros.get(livros.size() - 1));
+		}
 	}
 	
 	public void imprimirDetalhesLivros()
@@ -34,4 +51,22 @@ public class Biblioteca {
 			}
 		}
 	}
-}
+	
+	public void imprimirDetalhesLivros(String isbn)
+	{
+		if(livros.size() <= 0) {
+			System.out.println("Não há livros na lista");
+		} else {
+			int imprimiu = 0;
+			for(Livro livro:livros) {
+				if(livro.getIsbn().equals(isbn)) {
+					System.out.println(livro.getTitulo() + " (" + livro.getStringListaAutores() + ")");
+					imprimiu++;
+				}
+			}
+			if (imprimiu == 0) {
+				System.out.println("Não existe livro com este código ISBN"); 
+			}
+		}
+	}
+}//fim da classe

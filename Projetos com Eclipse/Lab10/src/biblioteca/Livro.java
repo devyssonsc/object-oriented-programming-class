@@ -50,8 +50,24 @@ public class Livro {
 	/**
 	 * @return the listaAutores
 	 */
-	public ArrayList<Autor> getListaAutores() {
+	public ArrayList<Autor> getListaAutores()
+	{
 		return listaAutores;
+	}
+	
+	public String getStringListaAutores()
+	{
+String stringListaAutores = "";
+		
+		for(Autor autor:listaAutores) {
+			if(listaAutores.indexOf(autor) != listaAutores.size() - 1) {
+				stringListaAutores += autor.getNome() + ", ";
+			} else {
+				stringListaAutores += autor.getNome();
+			}
+		}
+		
+		return stringListaAutores;
 	}
 	
 	@Override
