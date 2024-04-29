@@ -3,8 +3,17 @@ package biblioteca;
 import java.util.Scanner;
 import java.time.LocalDate;
 
+/**
+ * Esta classe contém o método principal para executar o sistema de biblioteca da UPT.
+ * Permite registrar livros, imprimir detalhes de livros e autores, e encerrar o programa.
+ */
 public class Main {
 
+	/**
+     * Método principal que inicia a execução do programa.
+     *
+     * @param args Argumentos da linha de comando (não utilizados neste programa).
+     */
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		
@@ -44,6 +53,7 @@ public class Main {
 					
 					System.out.print("Código ISBN: ");
 					isbn = input.nextLine();
+					
 					while(!isbn.matches("\\d{10}") || biblioteca.pesquisarLivro(isbn) != -1) {
 						System.out.println("\nJá existe um livro com este código!");
 						System.out.print("Código ISBN: ");
@@ -88,7 +98,7 @@ public class Main {
 						
 						int indiceAutor = biblioteca.pesquisarAutor(cc);
 						
-						while(indiceAutor != -1 && biblioteca.getAutores().get(indiceAutor).getNome() != nome) {
+						while(indiceAutor != -1 && !biblioteca.getAutores().get(indiceAutor).getNome().equals(nome)) {
 							System.out.println("\nJá existe um autor com este cartão do cidadão!");
 							do {
 								System.out.print("Nº do Cartão do Cidadão: ");

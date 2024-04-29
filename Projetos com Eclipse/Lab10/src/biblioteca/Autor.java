@@ -15,7 +15,6 @@ public class Autor {
 	 * @param nome
 	 * @param cc
 	 * @param email
-	 * @param listaLivros
 	 */
 	public Autor(String nome, String cc, String email) {
 		this.nome = nome;
@@ -25,33 +24,38 @@ public class Autor {
 	}
 
 	/**
-	 * @return the nome
+	 * @return o nome do autor
 	 */
 	public String getNome() {
 		return nome;
 	}
 
 	/**
-	 * @return the cc
+	 * @return o cc do autor
 	 */
 	public String getCc() {
 		return cc;
 	}
 
 	/**
-	 * @return the email
+	 * @return o email do autor
 	 */
 	public String getEmail() {
 		return email;
 	}
 
 	/**
-	 * @return the listaLivros
+	 * @return a lista de livros associados ao autor
 	 */
 	public ArrayList<Livro> getListaLivros() {
 		return listaLivros;
 	}
 	
+	/**
+     * Converte a lista de livros associados em uma string formatada.
+     *
+     * @return Uma string com os títulos dos livros associados separados por vírgula
+     */
 	public String getStringListaLivros() {
 		String stringListaLivros = "";
 		
@@ -66,6 +70,11 @@ public class Autor {
 		return stringListaLivros;
 	}
 
+	/**
+     * Sobrescreve o método toString para fornecer uma representação em string detalhada do autor, incluindo nome, CC, e-mail e lista de livros associados.
+     *
+     * @return Uma string com as informações completas do autor
+     */
 	@Override
 	public String toString() {
 		String stringListaLivros = "";

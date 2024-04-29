@@ -23,41 +23,46 @@ public class Livro {
 		listaAutores = new ArrayList<Autor>();
 	}
 	/**
-	 * @return the titulo
+	 * @return o título do livro
 	 */
 	public String getTitulo() {
 		return titulo;
 	}
 	/**
-	 * @return the ano
+	 * @return o ano em que o livro foi publicado
 	 */
 	public int getAno() {
 		return ano;
 	}
 	/**
-	 * @return the isbn
+	 * @return o código isbn do livro
 	 */
 	public String getIsbn() {
 		return isbn;
 	}
 	/**
-	 * @return the editora
+	 * @return a editora do livro
 	 */
 	public String getEditora() {
 		return editora;
 	}
 	
 	/**
-	 * @return the listaAutores
+	 * @return a lista de autores associados ao livro
 	 */
 	public ArrayList<Autor> getListaAutores()
 	{
 		return listaAutores;
 	}
 	
+	/**
+     * Converte a lista de autores associados em uma string formatada.
+     *
+     * @return Uma string com os nomes dos autores separados por vírgula
+     */
 	public String getStringListaAutores()
 	{
-String stringListaAutores = "";
+		String stringListaAutores = "";
 		
 		for(Autor autor:listaAutores) {
 			if(listaAutores.indexOf(autor) != listaAutores.size() - 1) {
@@ -70,6 +75,11 @@ String stringListaAutores = "";
 		return stringListaAutores;
 	}
 	
+	/**
+     * Sobrescreve o método toString para fornecer uma representação em string detalhada do livro, incluindo título, ano, ISBN, editora e lista de autores.
+     *
+     * @return Uma string com as informações completas do livro
+     */
 	@Override
 	public String toString() {
 		String stringListaAutores = "";
