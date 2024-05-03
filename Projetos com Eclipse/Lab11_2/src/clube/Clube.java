@@ -43,6 +43,8 @@ public class Clube {
 		int numCamisa;
 		String nomeJogador;
 		
+		System.out.println("\nRegisto de jogadores:\n");
+		
 		do {
 			System.out.print("Nº da camisa(-1 para Terminar): ");
 			numCamisa = input.nextInt();
