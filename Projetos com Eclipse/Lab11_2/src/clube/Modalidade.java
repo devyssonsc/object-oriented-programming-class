@@ -42,7 +42,7 @@ public class Modalidade {
 	}
 	@Override
 	public String toString() {
-		return "Modalidade [nome=" + nome + ", escalao=" + escalao + ", listaJogadores=" + listaJogadores + "]";
+		return "[nome=" + nome + ", escalao=" + escalao + ", listaJogadores=" + listaJogadores + "]";
 	}
 	
 	
