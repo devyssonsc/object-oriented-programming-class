@@ -1,3 +1,4 @@
+package clube;
 /**
  * 
  */
@@ -27,7 +28,6 @@ public class Jogador {
 	public int getNumCamisa() {
 		return numCamisa;
 	}
-
 	/**
 	 * @return the nome
 	 */
