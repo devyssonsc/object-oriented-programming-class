@@ -16,10 +16,10 @@ public class Jogador {
 	 * @param nome
 	 * @param jogosDisputados
 	 */
-	public Jogador(int numCamisa, String nome, int jogosDisputados) {
+	
+	public Jogador(int numCamisa, String nome) {
 		this.numCamisa = numCamisa;
 		this.nome = nome;
-		this.jogosDisputados = jogosDisputados;
 	}
 
 	/**
