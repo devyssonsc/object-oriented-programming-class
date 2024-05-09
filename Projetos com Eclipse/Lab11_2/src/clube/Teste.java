@@ -66,7 +66,7 @@ public class Teste {
 							estadio = input.nextLine();
 						} while(estadio.equals(""));
 						
-						upt.registarModalidades(nomeTreinador, escalao, nomeTreinador, estadio);
+						upt.registarModalidades(nomeModalidade, escalao, nomeTreinador, estadio);
 					} else {
 						do {
 							System.out.print("Nº máximo de jogadores: ");
@@ -75,6 +75,28 @@ public class Teste {
 						
 						upt.registarModalidades(nomeModalidade, escalao, maxJogadores);
 					}
+					
+					System.out.println("********************");
+					break;
+					
+				case 2:
+					upt.imprimirDetalhesTodasModalidades();
+					
+					System.out.println("********************");
+					break;
+					
+				case 3:
+					do {
+						System.out.println("Deseja imprimir os detalhes dos jogadores de qual modalidade?(F ou V): ");
+						nomeModalidade = input.nextLine();
+					} while(!nomeModalidade.equalsIgnoreCase("F") && !nomeModalidade.equalsIgnoreCase("V"));
+					
+					if(nomeModalidade.equalsIgnoreCase("F")) {
+						upt.imprimirDetalhesJogadoresModalidade("Futebol");
+					} else {
+						upt.imprimirDetalhesJogadoresModalidade("Voleibol");
+					}
+					
 			}
 			do {
 				System.out.println("1. Registar modalidades.");

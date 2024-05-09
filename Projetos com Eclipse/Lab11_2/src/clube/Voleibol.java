@@ -27,7 +27,7 @@ public class Voleibol extends Modalidade {
 
 	@Override
 	public String toString() {
-		return "Voleibol " + super.toString() + " [maxJogadores=" + maxJogadores + "]";
+		return "Voleibol\n" + super.toString() + "\nMáximo de Jogadores: " + maxJogadores + "\n";
 	}
 	
 	

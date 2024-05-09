@@ -34,7 +34,7 @@ public class Futebol extends Modalidade {
 	}
 	@Override
 	public String toString() {
-		return "Futebol " + super.toString() + " [nomeTreinador=" + nomeTreinador + ", estadio=" + estadio + "]";
+		return "Futebol\n" + super.toString() + "\nNome do treinador: " + nomeTreinador + ", Estadio: " + estadio + "\n";
 	}
 	
 	

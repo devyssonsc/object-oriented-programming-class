@@ -58,7 +58,16 @@ public class Clube {
 				nomeJogador = input.nextLine();
 			} while(nomeJogador.equals(""));
 		
-			modalidade.getListaJogadores().add(new Jogador(numCamisa, nomeJogador));
+			if(modalidade instanceof Voleibol) {
+				Voleibol voleibol = (Voleibol) modalidade;
+				if(modalidade.getListaJogadores().size() < voleibol.getMaxJogadores()) {
+					modalidade.getListaJogadores().add(new Jogador(numCamisa, nomeJogador));
+				} else {
+					System.out.println("\nLimite de jogadores excedido!\n");
+				}
+			} else {
+				modalidade.getListaJogadores().add(new Jogador(numCamisa, nomeJogador));				
+			}
 			
 			do {
 				System.out.print("Nº da camisa(-1 para Terminar): ");
@@ -68,4 +77,21 @@ public class Clube {
 			
 		}
 	}
-}
+	
+	public void imprimirDetalhesTodasModalidades()
+	{
+		for(Modalidade modalidade:listaModalidades) {
+			System.out.println(modalidade.toString());
+		}
+	}
+	
+	public void imprimirDetalhesJogadoresModalidade(String nomeModalidade)
+	{
+		for(Modalidade modalidade:listaModalidades) {
+			if(modalidade.getClass().getSimpleName().equalsIgnoreCase(nomeModalidade)) {
+				System.out.println(modalidade.listaJogadoresString());
+			}
+		}
+	}
+	
+}//fim da classe
