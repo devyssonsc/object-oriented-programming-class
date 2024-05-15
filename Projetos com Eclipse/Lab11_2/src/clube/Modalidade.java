@@ -56,6 +56,6 @@ public class Modalidade {
 		for(Jogador jogador:listaJogadores) {
 			detalhesJogadores += "\n" + jogador.getNumCamisa() + " - " + jogador.getNome() + " (" + jogador.getJogosDisputados() + " jogos disputados)";
 		}
-		return detalhesJogadores;
+		return detalhesJogadores + "\n";
 	}
 }

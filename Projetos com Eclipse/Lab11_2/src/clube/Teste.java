@@ -96,6 +96,16 @@ public class Teste {
 					} else {
 						upt.imprimirDetalhesJogadoresModalidade("Voleibol");
 					}
+				
+					System.out.println("********************");
+					break;
+					
+				case 4:
+					
+					upt.imprimirJogadoresZerados();
+					
+					System.out.println("********************");
+					break;
 					
 			}
 			do {

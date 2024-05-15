@@ -94,4 +94,14 @@ public class Clube {
 		}
 	}
 	
+	public void imprimirJogadoresZerados()
+	{
+		for(Modalidade modalidade:listaModalidades) {
+			for(Jogador jogador:modalidade.getListaJogadores()) {
+				if(jogador.getJogosDisputados() == 0) {
+					System.out.println(jogador.getNumCamisa() + " - " + jogador.getNome() + "(" + modalidade.getNome() + ")");
+				}
+			}
+		}
+	}
 }//fim da classe
